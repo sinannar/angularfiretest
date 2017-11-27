@@ -37,9 +37,12 @@ export class AppComponent {
 
   searchItems(name:string)
   {
+    this.filtered = null;
     this.items.subscribe(x => {
-      this.filtered = x.filter(a => a.text == name);
-
+      if(!this.filtered)
+      {
+        this.filtered = x.filter(a => a.text == name);      
+      }
     });
   }
 
