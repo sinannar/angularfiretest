@@ -1,0 +1,53 @@
+<hr>
+
+<div>
+  <input type="text" #newMessage />
+  <button (click)="addMessage(newMessage.value)">Add</button>
+  <button (click)="deleteEverythingMessage()">Delete All Messages</button>
+
+  <ul>
+    <li *ngFor="let message of messages | async">
+      <input type="text" #updateMessageText [value]="message.text" />
+      <button (click)="updateMessage(message.key, updateMessageText.value)">Update</button>
+      <button (click)="deleteMessage(message.key)">Delete</button>
+      |{{message.key}}|
+    </li>
+  </ul>
+</div>
+
+<hr>
+
+<div>
+  <input type="text" #newItem />
+  <button (click)="addItem(newItem.value)">Add</button>
+  <button (click)="deleteEverythingItem()">Delete All Items</button>
+
+  <ul>
+    <li *ngFor="let item of items | async">
+      <input type="text" #updateItemText [value]="item.text" />
+      <button (click)="updateItem(item.key, updateItemText.value)">Update</button>
+      <button (click)="deleteItem(item.key)">Delete</button>
+      |{{item.key}}|
+    </li>
+  </ul>
+</div>
+
+<hr>
+  <button (click)="deleteEverything()">Delete All</button>
+
+<hr>
+
+<div>
+  <input type="text" #filter />
+  <button (click)="searchItem(filter.value)">filter</button>
+  
+  <ul>
+    <li *ngFor="let fff of filtered">
+      <input type="text" #updateMessageText [value]="fff.text" />
+    </li>
+  </ul>
+</div>
+
+<hr>
+
+
