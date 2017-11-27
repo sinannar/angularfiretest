@@ -60,7 +60,7 @@ export class AppComponent {
 
 
   deleteEverythingItem() {
-    this.messagseRef.remove();
+    this.itemsRef.remove();
   }
  
 
