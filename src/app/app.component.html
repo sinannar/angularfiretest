@@ -36,3 +36,18 @@
   <button (click)="deleteEverything()">Delete All</button>
 
 <hr>
+
+<div>
+  <input type="text" #filter />
+  <button (click)="searchItem(filter.value)">filter</button>
+  
+  <ul>
+    <li *ngFor="let fff of filtered">
+      <input type="text" #updateMessageText [value]="fff.text" />
+    </li>
+  </ul>
+</div>
+
+<hr>
+
+
