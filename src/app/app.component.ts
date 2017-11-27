@@ -12,8 +12,8 @@ export class AppComponent {
   messages: Observable<any[]>;
   itemsRef: AngularFireList<any>;
   items: Observable<any[]>;
-  filtered: Observable<any[]>;
-
+  filtered: any[];
+  filteredItem : any;
   constructor(db: AngularFireDatabase) {
     this.messagseRef = db.list('messages');
     this.itemsRef = db.list('items');
@@ -29,11 +29,16 @@ export class AppComponent {
 
   searchItem(name:string)
   {
-    debugger;
-    //this.filtered = this.items.filter(x => x.find(y => y.name == name));
+    this.items.subscribe(x => {
+      this.filteredItem = x.find(a => a.text == name);
+    });
+  }
+
+
+  searchItems(name:string)
+  {
     this.items.subscribe(x => {
       this.filtered = x.filter(a => a.text == name);
-          debugger;
 
     });
   }
